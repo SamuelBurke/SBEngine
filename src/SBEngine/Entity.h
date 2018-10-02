@@ -2,5 +2,6 @@
 
 class Entity
 {
-
+	Entity;
+	~Entity;
 };
