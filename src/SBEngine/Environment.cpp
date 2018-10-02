@@ -1,6 +1,11 @@
+#include "Environment.h"
 
-
-class Environment
+Environment::Environment()
 {
 
-};
+}
+
+Environment::~Environment()
+{
+
+}

@@ -13,6 +13,10 @@ add_library(SBEngine
  src/SBEngine/Entity.cpp
  src/SBEngine/Environment.h
  src/SBEngine/Environment.cpp
+ src/SBEngine/Keyboard.h
+ src/SBEngine/Keyboard.cpp
+ src/SBEngine/Component.h
+ src/SBEngine/Component.cpp
 )
 
 target_link_libraries(test_engine SBEngine)
