@@ -1,7 +1,7 @@
 #include <memory>
 #include <vector>
 
-class Entity;
+class Entity; // Forward declaration
 class Environment;
 class Keyboard;
 
@@ -14,8 +14,9 @@ public:
 	void Start();
 	void Stop();
 private:
-	std::shared_ptr<Environment> environment;
 	std::vector<std::shared_ptr<Entity>> entities;
+
+	std::shared_ptr<Environment> environment;
 	std::shared_ptr<Keyboard> keyboard;
 	bool running;
 };

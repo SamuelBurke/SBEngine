@@ -1,21 +1,15 @@
 #include "Entity.h"
+#include "Component.h"
 
-Entity::Entity()
+void Entity::Tick()
 {
-
+	for (auto it = components.begin(); it != components.end(); it++)
+	{
+		(*it)->OnTick();
+	}
 }
 
-Entity::~Entity()
-{
-
-}
-
-void Entity::tick()
-{
-
-}
-
-void Entity::display()
+void Entity::Display()
 {
 
 }

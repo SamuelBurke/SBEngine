@@ -1,3 +1,7 @@
+#pragma once
+#ifndef COMPONENT_H_
+#define COMPONENT_H_
+
 #include <memory>
 
 class Entity;
@@ -8,8 +12,9 @@ class Environment;
 class Component
 {
 public:
-	Component();
-	~Component();
+	virtual ~Component();
+
+	virtual void OnTick();
 
 	std::shared_ptr<Entity> GetEntity();
 	std::shared_ptr<Core> GetCore();
@@ -19,8 +24,10 @@ public:
 private:
 	std::weak_ptr<Entity> entity;
 
-	void OnInit();
-	void OnBegin();
-	void OnTick();
-	void OnDisplay();
+	//void OnInit();
+	//void OnBegin();
+	//void OnTick();
+	//void OnDisplay();
 };
+
+#endif
