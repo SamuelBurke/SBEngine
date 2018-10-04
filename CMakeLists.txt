@@ -5,6 +5,7 @@ if (MSVC)
   include_directories(
     contrib/msvc-windows-x86/glew/include
     contrib/msvc-windows-x86/SDL2/include
+    src
   )
 
   link_directories(
@@ -23,21 +24,25 @@ add_executable(test_engine
 
 add_library(SBEngine
  src/SBEngine/engine.cpp
+ src/SBEngine/SBEngine.h
  src/SBEngine/Core.h
- src/SBEngine/Core.cpp
  src/SBEngine/Entity.h
- src/SBEngine/Entity.cpp
  src/SBEngine/Environment.h
- src/SBEngine/Environment.cpp
  src/SBEngine/Keyboard.h
- src/SBEngine/Keyboard.cpp
  src/SBEngine/Component.h
+ src/SBEngine/Triangle.h
+
+ src/SBEngine/Core.cpp
+ src/SBEngine/Entity.cpp
+ src/SBEngine/Environment.cpp
+ src/SBEngine/Keyboard.cpp 
  src/SBEngine/Component.cpp
+ src/SBEngine/Triangle.cpp
 )
 
 if(MSVC)
   target_link_libraries(test_engine 
-    SDL2 glew32 SBEngine
+    SDL2 glew32 opengl32 SBEngine
   )
 else()
   target_link_libraries(test_engine
