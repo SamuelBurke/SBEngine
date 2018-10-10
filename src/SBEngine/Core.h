@@ -17,13 +17,13 @@ public:
 
 	void Start();
 	void Stop();
+
 private:
-	bool m_running;
+	bool m_quit;
 	std::vector<std::shared_ptr<Entity>> m_entities;
 	std::weak_ptr<Core> m_self;
 
-	SDL_Window *window;
-
+	SDL_Window *m_window;
 };
 
 }

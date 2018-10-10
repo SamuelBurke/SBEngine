@@ -1,8 +1,12 @@
+#include "Component.h"
+
 #include <memory>
 #include <vector>
 
+namespace SBEngine
+{
+
 class Core;
-class Component;
 
 class Entity
 {
@@ -42,3 +46,5 @@ private:
 	std::weak_ptr<Core> core;
 	std::vector <std::shared_ptr<Component>> components;
 };
+
+}

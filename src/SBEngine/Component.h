@@ -1,33 +1,32 @@
 #pragma once
-#ifndef COMPONENT_H_
-#define COMPONENT_H_
+#ifndef SBENGINE_COMPONENT_H_
+#define SBENGINE_COMPONENT_H_
 
 #include <memory>
 
+namespace SBEngine
+{
+
 class Entity;
 class Core;
-class Keyboard;
-class Environment;
 
 class Component
 {
 public:
 	virtual ~Component();
 
-	virtual void OnTick();
-
 	std::shared_ptr<Entity> GetEntity();
 	std::shared_ptr<Core> GetCore();
-	std::shared_ptr<Keyboard> GetKeyboard();
-	std::shared_ptr<Environment> GetEnvironment();
 
 private:
-	std::weak_ptr<Entity> entity;
+	std::weak_ptr<Entity> m_entity;
 
-	//void OnInit();
-	//void OnBegin();
-	//void OnTick();
-	//void OnDisplay();
+	virtual void OnInit();
+	virtual void OnBegin();
+	virtual void OnTick();
+	virtual void OnDisplay();
 };
+
+}
 
 #endif
