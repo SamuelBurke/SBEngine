@@ -1,22 +1,29 @@
+#include <SDL2/SDL.h>
+
 #include <memory>
 #include <vector>
 
+namespace SBEngine
+{
+
 class Entity; // Forward declaration
-class Environment;
-class Keyboard;
+
 
 class Core
 {
 public:
-	std::shared_ptr<Core> Initialise();
+	static std::shared_ptr<Core> Initialise();
 	std::shared_ptr<Entity> AddEntity();
 
 	void Start();
 	void Stop();
 private:
-	std::vector<std::shared_ptr<Entity>> entities;
+	bool m_running;
+	std::vector<std::shared_ptr<Entity>> m_entities;
+	std::weak_ptr<Core> m_self;
 
-	std::shared_ptr<Environment> environment;
-	std::shared_ptr<Keyboard> keyboard;
-	bool running;
+	SDL_Window *window;
+
 };
+
+}

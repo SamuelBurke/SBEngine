@@ -1,13 +1,13 @@
 #include <GL/glew.h>
 
+
 class Triangle
 {
 public:
-	void tick();
-private:
-	//const GLfloat positions[];
-	void VShader();
-	void FShader();
+	void SetUp();
+	void Draw();
 
+private:
 	GLuint positionsVboID, vaoID;
+	GLuint programID;
 };
