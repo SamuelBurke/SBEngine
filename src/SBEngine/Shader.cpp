@@ -87,7 +87,6 @@ void Shader::SetFloat(const std::string &_name, float _value) const
 
 void Shader::CheckCompilerErrors(unsigned int _shader, std::string _type)
 {
-
 	int success;
 	char infoLog[1024];
 	if (_type != "PROGRAM")

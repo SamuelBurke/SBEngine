@@ -81,7 +81,7 @@ std::shared_ptr<Entity> Core::AddEntity()
 	std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
 	m_entities.push_back(rtn);
 	rtn->m_self = rtn;
-	rtn->core   = self;
+	rtn->m_core = m_self;
 
 	return rtn;
 }

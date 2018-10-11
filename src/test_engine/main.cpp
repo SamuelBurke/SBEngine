@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-class Player : public Component
+class Player : public SBEngine::Component
 {
 public:
 	//void OnTick()
@@ -17,37 +17,10 @@ int main()
 
 	std::shared_ptr<SBEngine::Entity> entity = core->AddEntity(); //creates our first entity, for use on the following lines.
 
-	//CORE->START
+	std::shared_ptr<SBEngine::Audio> audio = std::make_shared<SBEngine::Audio>("../resources/sounds/dixie_horn.ogg");
+	audio->Play();
 
-
-	bool quit = false;
-
-	while (!quit)
-	{
-		SDL_Event event = { 0 };
-
-		while (SDL_PollEvent(&event))
-		{
-			if (event.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-
-		}
-
-		//myTriangle.Draw();
-
-		std::shared_ptr<Core> core = std::make_shared<Core>();
-		std::shared_ptr<Entity> player = core->AddEntity();
-		player->AddComponent<Player>();
-
-		core->Start();
-
-		SDL_GL_SwapWindow(window);
-	}
-
-	SDL_DestroyWindow(window);
-	SDL_Quit();
+	core->Start();
 
 	return 0;
 }

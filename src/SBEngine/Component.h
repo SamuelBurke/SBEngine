@@ -12,6 +12,8 @@ class Core;
 
 class Component
 {
+	friend class Entity;
+
 public:
 	virtual ~Component();
 

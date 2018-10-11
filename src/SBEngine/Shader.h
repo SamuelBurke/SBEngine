@@ -4,9 +4,9 @@
 #include <gl/glew.h>
 //#include <memory>
 
-#include   <string>
-#include  <fstream>
-#include  <sstream>
+#include <string>
+#include <fstream>
+#include <sstream>
 #include <iostream>
 
 class Shader
@@ -33,6 +33,8 @@ public:
 	const char* m_fShaderCode;
 
 	unsigned int m_vertex, m_fragment;
+
+	//(../resources/shaders....)
 
 private:
 	void CheckCompilerErrors(unsigned int _shader, std::string _type);
