@@ -77,6 +77,7 @@ struct AudioImpl
 	}
 };
 
+Audio::Audio() {}
 
 Audio::Audio(std::string _audiopath)
 {
@@ -110,22 +111,22 @@ void Audio::Play()
 	//audioSources.push_back(sid);
 }
 
-void Audio::Play(float _volume, float _varianceMin, float _varianceMax)
-{
-	_varianceMin *= 1000.0f;
-	_varianceMax *= 1000.0f;
-	float variance = (std::rand() % ((int)_varianceMin + 1 - (int)_varianceMax) + (int)_varianceMin) / 1000.0f;
-		//return std::rand() % (max + 1 - min) + min;
-	ALuint sid = 0;
-	alGenSources(1, &sid);
-	alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
-	alSource3f(sid, AL_POSITION, 0.0f, 0.0f, 0.0f);
-	alSourcei(sid, AL_BUFFER, m_impl->ID);
-	alSourcef(sid, AL_PITCH, variance);
-	alSourcef(sid, AL_GAIN, _volume);
-	alSourcePlay(sid);
-
-	//audioSources.push_back(sid);
-}
+//void Audio::Play(float _volume, float _varianceMin, float _varianceMax)
+//{
+//	_varianceMin *= 1000.0f;
+//	_varianceMax *= 1000.0f;
+//	float variance = (std::rand() % ((int)_varianceMin + 1 - (int)_varianceMax) + (int)_varianceMin) / 1000.0f;
+//		//return std::rand() % (max + 1 - min) + min;
+//	ALuint sid = 0;
+//	alGenSources(1, &sid);
+//	alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
+//	alSource3f(sid, AL_POSITION, 0.0f, 0.0f, 0.0f);
+//	alSourcei(sid, AL_BUFFER, m_impl->ID);
+//	alSourcef(sid, AL_PITCH, variance);
+//	alSourcef(sid, AL_GAIN, _volume);
+//	alSourcePlay(sid);
+//
+//	//audioSources.push_back(sid);
+//}
 
 }

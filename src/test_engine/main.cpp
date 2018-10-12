@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-class Player : public SBEngine::Component
+class TestScreen : public SBEngine::Component
 {
 public:
 	//void OnTick()
@@ -17,8 +17,8 @@ int main()
 
 	std::shared_ptr<SBEngine::Entity> entity = core->AddEntity(); //creates our first entity, for use on the following lines.
 
-	std::shared_ptr<SBEngine::Audio> audio = std::make_shared<SBEngine::Audio>("../resources/sounds/dixie_horn.ogg");
-	audio->Play();
+	//std::shared_ptr<SBEngine::Audio> audio = std::make_shared<SBEngine::Audio>("../resources/sounds/dixie_horn.ogg");
+	//audio->Play();
 
 	core->Start();
 

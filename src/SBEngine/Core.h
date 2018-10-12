@@ -1,4 +1,5 @@
-#include <SDL2/SDL.h>
+#include "NonCopyable.h"
+#include "Screen.h"
 
 #include <memory>
 #include <vector>
@@ -7,9 +8,9 @@ namespace SBEngine
 {
 
 class Entity; // Forward declaration
+class Screen;
 
-
-class Core
+class Core : private NonCopyable
 {
 public:
 	static std::shared_ptr<Core> Initialise();
@@ -23,7 +24,10 @@ private:
 	std::vector<std::shared_ptr<Entity>> m_entities;
 	std::weak_ptr<Core> m_self;
 
-	SDL_Window *m_window;
+	Screen m_screen;
+	//Screen screen;
+
+	//SDL_Window *m_window;
 };
 
 }

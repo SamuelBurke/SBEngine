@@ -3,13 +3,14 @@
 
 #include <gl/glew.h>
 //#include <memory>
+#include "NonCopyable.h"
 
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 
-class Shader
+class Shader : private NonCopyable
 {
 public:
 	//Shader(const std::shared_ptr<char> _vertexPath, const std::shared_ptr<char> _fragmentPath)

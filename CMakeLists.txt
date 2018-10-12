@@ -35,21 +35,38 @@ add_executable(test_engine
 add_library(SBEngine
  src/SBEngine/SBEngine.h
  src/SBEngine/Core.h
- src/SBEngine/Entity.h
- src/SBEngine/Shader.h
- src/SBEngine/Environment.h
- src/SBEngine/Keyboard.h
- src/SBEngine/Component.h
- src/SBEngine/Triangle.h
- src/SBEngine/Audio.h
-
  src/SBEngine/Core.cpp
+ src/SBEngine/Entity.h
  src/SBEngine/Entity.cpp
- src/SBEngine/Shader.cpp
- src/SBEngine/Environment.cpp
- src/SBEngine/Keyboard.cpp 
+ src/SBEngine/Component.h
  src/SBEngine/Component.cpp
+ src/SBEngine/NonCopyable.h
+
+ src/SBEngine/MeshRenderer.h
+ src/SBEngine/MeshRenderer.cpp
+ src/SBEngine/Transform.h
+ src/SBEngine/Transform.cpp
+
+ src/SBEngine/Resource.h
+ src/SBEngine/Resources.h
+ src/SBEngine/Resources.cpp
+ src/SBEngine/Mesh.h
+ src/SBEngine/Mesh.cpp
+ src/SBEngine/Texture.h
+ src/SBEngine/Texture.cpp
+ src/SBEngine/Shader.h
+ src/SBEngine/Shader.cpp
+
+ src/SBEngine/Screen.h
+ src/SBEngine/Screen.cpp
+
+ src/SBEngine/Environment.h
+ src/SBEngine/Environment.cpp
+ src/SBEngine/Keyboard.h
+ src/SBEngine/Keyboard.cpp
+ src/SBEngine/Triangle.h
  src/SBEngine/Triangle.cpp
+ src/SBEngine/Audio.h
  src/SBEngine/Audio.cpp
 )
 
