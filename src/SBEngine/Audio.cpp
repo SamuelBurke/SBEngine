@@ -18,7 +18,7 @@ struct AudioImpl
 		alDeleteBuffers(1, &ID);
 	}
 
-	void Load_ogg(std::string _filename, std::vector<char> &_buffer, 
+	void Load_ogg(std::string _fileName, std::vector<char> &_buffer, 
 				       ALenum &_format, ALsizei &_freq)
 	{
 		int endian = 0;
@@ -29,9 +29,9 @@ struct AudioImpl
 		OggVorbis_File oggFile = { 0 };
 
 		// use the inbuilt fopen to create a file descriptor
-		if (ov_fopen(_filename.c_str(), &oggFile) != 0)
+		if (ov_fopen(_fileName.c_str(), &oggFile) != 0)
 		{
-			std::cout << "Failed to open the file: '" << _filename << "' for decoding" << std::endl;
+			std::cout << "Failed to open the file: '" << _fileName << "' for decoding" << std::endl;
 			throw std::exception();
 		}
 
@@ -60,7 +60,7 @@ struct AudioImpl
 			if (bytes < 0)
 			{
 				ov_clear(&oggFile);
-				std::cout << "Failed to decode file '" << _filename << "'." << std::endl;
+				std::cout << "Failed to decode file '" << _fileName << "'." << std::endl;
 				throw std::exception();
 			}
 			else if (bytes == 0)
@@ -79,12 +79,12 @@ struct AudioImpl
 
 Audio::Audio() {}
 
-Audio::Audio(std::string _audiopath)
+Audio::Audio(std::string _audioPath)
 {
-	Load(_audiopath);
+	Load(_audioPath);
 }
 
-void Audio::Load(std::string _audiopath)
+void Audio::Load(std::string _audioPath)
 {
 	m_impl = std::make_shared<AudioImpl>();
 
@@ -93,7 +93,7 @@ void Audio::Load(std::string _audiopath)
 	std::vector<char> bufferData;
 
 	alGenBuffers(1, &m_impl->ID);
-	m_impl->Load_ogg(_audiopath.c_str(), bufferData, format, freq);
+	m_impl->Load_ogg(_audioPath.c_str(), bufferData, format, freq);
 
 	alBufferData(m_impl->ID, format, &bufferData[0], static_cast<ALsizei>(bufferData.size()), freq);
 
@@ -101,12 +101,12 @@ void Audio::Load(std::string _audiopath)
 
 void Audio::Play()
 {
-	ALuint sid = 0;
-	alGenSources(1, &sid);
+	ALuint sourceid = 0;
+	alGenSources(1, &sourceid);
 	alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
-	alSource3f(sid, AL_POSITION, 0.0f, 0.0f, 0.0f);
-	alSourcei(sid, AL_BUFFER, m_impl->ID);
-	alSourcePlay(sid);
+	alSource3f(sourceid, AL_POSITION, 0.0f, 0.0f, 0.0f);
+	alSourcei(sourceid, AL_BUFFER, m_impl->ID);
+	alSourcePlay(sourceid);
 
 	//audioSources.push_back(sid);
 }
